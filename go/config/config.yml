@@ -1,0 +1,10 @@
+# TODO: having trouble parsing names with dashes or underscores, investigate further
+messaging:
+  host: "localhost"
+  port: 5672
+
+data ingestion:
+  queue name: "data_ingestion_queue"
+
+api:
+  queue name: "api_queue"

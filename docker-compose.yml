@@ -1,0 +1,18 @@
+version: "3.2"
+services:
+  rabbitmq:
+  # TODO: configure username/password
+    image: rabbitmq:3-management-alpine
+    container_name: 'rabbitmq'
+    ports:
+        - 5672:5672
+        - 15672:15672
+    volumes:
+        - ~/Data/MovieCruncher/rabbitmq/data/:/var/lib/rabbitmq/
+        - ~/Data/MovieCruncher/rabbitmq/log/:/var/log/rabbitmq
+    networks:
+        - moviecruncher
+
+networks:
+  moviecruncher:
+    driver: bridge
