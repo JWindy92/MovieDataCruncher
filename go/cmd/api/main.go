@@ -4,6 +4,7 @@ import (
 	"log"
 
 	"github.com/JWindy92/MovieDataCruncher/config"
+	"github.com/JWindy92/MovieDataCruncher/internal/api/server"
 	"github.com/JWindy92/MovieDataCruncher/messaging"
 )
 
@@ -12,7 +13,10 @@ func main() {
 		// Handle error, e.g., log and exit
 		panic(err)
 	}
-	log.Println("Starting API Service")
+	server.Run()
+}
+
+func testMsg() {
 	log.Println(config.Config.Api.QueueName)
 	log.Println(config.Config.DataIngestion.QueueName)
 	// messaging.PublishMessage()
