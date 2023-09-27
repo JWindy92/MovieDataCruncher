@@ -83,3 +83,8 @@ Analysis Service (Julia):
 
 9. **Distributed Locks**:
    - Redis provides support for distributed locks, which can be useful for ensuring data consistency and coordination across microservices when needed.
+
+
+
+### Useful resources
+ - Benthos: https://github.com/benthosdev/benthos
