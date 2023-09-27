@@ -20,6 +20,4 @@ func TestFunc() {
 	log.Println("Hello from api server")
 
 	log.Println(config.Config.Messaging.Host)
-	// messaging.PublishMessage()
-	// messaging.ConsumeMessage()
 }
