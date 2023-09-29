@@ -18,7 +18,13 @@ type Messenger struct {
 	QueueName string
 }
 
-func (m Messenger) Listen() {
+type QueueHandler func(string)
+
+func TestHandler(s string) {
+	log.Printf("PRINTING FROM HANDLER: %s", s)
+}
+
+func (m Messenger) Listen(handler QueueHandler) {
 	cfg := config.Config.Messaging
 	conn_str := fmt.Sprintf("amqp://guest:guest@%s:%d/", cfg.Host, cfg.Port)
 	log.Printf("Conn String: %s", conn_str)
@@ -56,7 +62,8 @@ func (m Messenger) Listen() {
 
 	go func() {
 		for d := range msgs {
-			log.Printf("Received a message: %s", d.Body)
+			handler(string(d.Body))
+			// log.Printf("Received a message: %s", d.Body)
 		}
 	}()
 
@@ -64,7 +71,7 @@ func (m Messenger) Listen() {
 	<-forever
 }
 
-func (m Messenger) Publish(msg string, queue string) {
+func Publish(msg string, queue string) {
 	cfg := config.Config.Messaging
 	conn_str := fmt.Sprintf("amqp://guest:guest@%s:%d/", cfg.Host, cfg.Port)
 	conn, err := amqp.Dial(conn_str)

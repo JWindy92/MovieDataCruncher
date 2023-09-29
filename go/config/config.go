@@ -8,7 +8,7 @@ var (
 
 type AppConfig struct {
 	Messaging     MessagingConfig     `yaml:"messaging"`
-	DataIngestion DataIngestionConfig `yaml:"data ingestion"`
+	DataIngestion DataIngestionConfig `yaml:"dataingestion"`
 	Api           ApiConfig           `yaml:"api"`
 }
 
@@ -18,11 +18,11 @@ type MessagingConfig struct {
 }
 
 type DataIngestionConfig struct {
-	QueueName string `yaml:"queue name"`
+	QueueName string `yaml:"queuename"`
 }
 
 type ApiConfig struct {
-	QueueName string `yaml:"queue name"`
+	QueueName string `yaml:"queuename"`
 }
 
 func LoadConfig() error {

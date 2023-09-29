@@ -3,8 +3,8 @@ messaging:
   host: "localhost"
   port: 5672
 
-data ingestion:
-  queue name: "data_ingestion_queue"
+dataingestion:
+  queuename: "data_ingestion_queue"
 
 api:
-  queue name: "api_queue"
+  queuename: "api_queue"
