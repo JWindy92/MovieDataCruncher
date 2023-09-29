@@ -7,21 +7,17 @@ import (
 
 	"github.com/JWindy92/MovieDataCruncher/config"
 	"github.com/JWindy92/MovieDataCruncher/messaging"
+	"github.com/JWindy92/MovieDataCruncher/models"
 	"github.com/gin-gonic/gin"
 )
 
-type MovieQuery struct {
-	Title string `json:"title"`
-}
-
 func MovieHandler() gin.HandlerFunc {
 	return func(c *gin.Context) {
-		body := MovieQuery{}
+		body := models.SearchQuery{}
 		if err := c.BindJSON(&body); err != nil {
 			c.AbortWithError(http.StatusBadRequest, err)
 			return
 		}
-		// msgr := messaging.Messenger{QueueName: config.Config.Api.QueueName}
 		log.Printf("Asking data ingestion for %s", body.Title)
 		body_str, err := json.Marshal(body)
 		if err != nil {

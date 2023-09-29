@@ -8,3 +8,7 @@ dataingestion:
 
 api:
   queuename: "api_queue"
+
+tmdb:
+  apikey: 212a17d73d56b1ef7b6ed072f239f40b
+  readaccesstoken: eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMTJhMTdkNzNkNTZiMWVmN2I2ZWQwNzJmMjM5ZjQwYiIsInN1YiI6IjViNWI3ZGZkMGUwYTI2MmU5YzAwNDU2ZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.p-Fo1R-2ySn8iTupLY2bi8PjU0PMat7AmH22KSyQ1KM

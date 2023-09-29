@@ -10,6 +10,7 @@ type AppConfig struct {
 	Messaging     MessagingConfig     `yaml:"messaging"`
 	DataIngestion DataIngestionConfig `yaml:"dataingestion"`
 	Api           ApiConfig           `yaml:"api"`
+	Tmdb          TMBDConfig          `yaml"tmdb"`
 }
 
 type MessagingConfig struct {
@@ -23,6 +24,10 @@ type DataIngestionConfig struct {
 
 type ApiConfig struct {
 	QueueName string `yaml:"queuename"`
+}
+
+type TMBDConfig struct {
+	ApiKey string `yaml:"apikey"`
 }
 
 func LoadConfig() error {
