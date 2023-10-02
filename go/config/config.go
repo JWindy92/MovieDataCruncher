@@ -7,10 +7,11 @@ var (
 )
 
 type AppConfig struct {
-	Messaging     MessagingConfig     `yaml:"messaging"`
-	DataIngestion DataIngestionConfig `yaml:"dataingestion"`
-	Api           ApiConfig           `yaml:"api"`
-	Tmdb          TMBDConfig          `yaml"tmdb"`
+	Messaging      MessagingConfig      `yaml:"messaging"`
+	DataIngestion  DataIngestionConfig  `yaml:"dataingestion"`
+	Transformation TransformationConfig `yaml:"transformation"`
+	Api            ApiConfig            `yaml:"api"`
+	Tmdb           TMBDConfig           `yaml"tmdb"`
 }
 
 type MessagingConfig struct {
@@ -19,6 +20,10 @@ type MessagingConfig struct {
 }
 
 type DataIngestionConfig struct {
+	QueueName string `yaml:"queuename"`
+}
+
+type TransformationConfig struct {
 	QueueName string `yaml:"queuename"`
 }
 
