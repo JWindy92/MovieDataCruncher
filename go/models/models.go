@@ -15,3 +15,8 @@ func (options SearchOptions) ToMap() map[string]string {
 	}
 	return optionsMap
 }
+
+type SearchResult struct {
+	Title string
+	Id    string
+}
