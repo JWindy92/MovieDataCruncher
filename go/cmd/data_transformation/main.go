@@ -1,5 +1,7 @@
 package main
 
+// This job listens for requests via rabbitmq and performs transformations on data to be saved and later utilized by the analysis service
+
 import (
 	"github.com/JWindy92/MovieDataCruncher/config"
 	"github.com/JWindy92/MovieDataCruncher/internal/api/queue"
