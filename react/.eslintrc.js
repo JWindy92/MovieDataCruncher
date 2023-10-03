@@ -1,10 +1,8 @@
-// module.exports = {
-//     "parser": "@babel/eslint-parser",
-//     "rules": {}
-// }
+
 module.exports = {
     "env": {
-        "browser": true
+        "browser": true,
+        "node": true
     },
     "plugins": [ "react" ],
     "extends": [
@@ -12,7 +10,4 @@ module.exports = {
       "plugin:react/recommended"
     ],
     "parser": "@babel/eslint-parser",
-    "workingDirectories": [
-        {"mode": "auto"}   // Path to the shared code directory
-      ],
 };
