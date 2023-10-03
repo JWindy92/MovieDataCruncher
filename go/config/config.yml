@@ -6,6 +6,9 @@ messaging:
 dataingestion:
   queuename: "data_ingestion_queue"
 
+transformation:
+  queuename: "transformation_queue"
+
 api:
   queuename: "api_queue"
 

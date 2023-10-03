@@ -12,6 +12,11 @@ import (
 )
 
 func MovieHandler() gin.HandlerFunc {
+
+	//  - Recieve GET
+	//  - Ask data_ingestion to get data
+	//	- Listener listens for message from data_ingestion containing data
+	//  - Api sends websocket update to client
 	return func(c *gin.Context) {
 		body := models.SearchQuery{}
 		if err := c.BindJSON(&body); err != nil {

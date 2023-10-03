@@ -1,5 +1,7 @@
 package main
 
+// This service listens to requests to retrieve information via it's rabbit mq queue
+// it is also responsible for caching the unique id's of records as they are read, so other services have more direct access to relevant data
 import (
 	"log"
 

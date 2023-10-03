@@ -11,7 +11,7 @@ import (
 
 var tmdbAPI *tmdb.TMDb
 
-func PerformSearch(s string) {
+func PerformSearch(s string) string {
 	tmdb_config := tmdb.Config{
 		APIKey:   config.Config.Tmdb.ApiKey,
 		Proxies:  nil,
@@ -24,6 +24,7 @@ func PerformSearch(s string) {
 	if err != nil {
 		panic(err)
 	}
+	tmdbAPI = tmdb.Init(tmdb_config)
 
 	options := searchQuery.Options.ToMap()
 	log.Printf("Options: %s", options)
@@ -34,5 +35,6 @@ func PerformSearch(s string) {
 
 	gangsJson, err := tmdb.ToJSON(searchResult)
 
-	log.Printf("Got Fight Club INfo: %s", gangsJson)
+	return gangsJson
+
 }
