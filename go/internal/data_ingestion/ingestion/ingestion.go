@@ -11,7 +11,7 @@ import (
 
 var tmdbAPI *tmdb.TMDb
 
-func PerformSearch(s string) {
+func PerformSearch(s string) string {
 	tmdb_config := tmdb.Config{
 		APIKey:   config.Config.Tmdb.ApiKey,
 		Proxies:  nil,
@@ -24,12 +24,6 @@ func PerformSearch(s string) {
 	}
 	tmdbAPI = tmdb.Init(tmdb_config)
 
-	api_key := config.Config.Tmdb.ApiKey
-	log.Printf("TMDB API KEY IS: %s", api_key)
-
-	// options := map[string]string{
-	// 	"primary_release_year": "2002",
-	// }
 	options := searchQuery.Options.ToMap()
 	log.Printf("Options: %s", options)
 	// fightClubInfo, err := tmdbAPI.GetMovieInfo(550, nil)
@@ -40,6 +34,6 @@ func PerformSearch(s string) {
 
 	gangsJson, err := tmdb.ToJSON(searchResult)
 
-	log.Printf("Got Fight Club INfo: %s", gangsJson)
+	return gangsJson
 
 }
