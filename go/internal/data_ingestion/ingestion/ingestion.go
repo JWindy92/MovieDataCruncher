@@ -2,7 +2,6 @@ package ingestion
 
 import (
 	"encoding/json"
-	"log"
 
 	"github.com/JWindy92/MovieDataCruncher/config"
 	"github.com/JWindy92/MovieDataCruncher/models"
@@ -12,6 +11,7 @@ import (
 var tmdbAPI *tmdb.TMDb
 
 func PerformSearch(s string) string {
+	//TODO: currently using specific test case where only one result is returned, need to be more flexible
 	tmdb_config := tmdb.Config{
 		APIKey:   config.Config.Tmdb.ApiKey,
 		Proxies:  nil,
@@ -27,14 +27,14 @@ func PerformSearch(s string) string {
 	tmdbAPI = tmdb.Init(tmdb_config)
 
 	options := searchQuery.Options.ToMap()
-	log.Printf("Options: %s", options)
+
 	searchResult, err := tmdbAPI.SearchMovie(searchQuery.Title, options)
 	if err != nil {
 		panic(err)
 	}
 
-	gangsJson, err := tmdb.ToJSON(searchResult)
+	jsonData, err := tmdb.ToJSON(searchResult)
 
-	return gangsJson
+	return jsonData
 
 }

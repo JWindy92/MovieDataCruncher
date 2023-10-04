@@ -20,3 +20,8 @@ type SearchResult struct {
 	Title string
 	Id    string
 }
+
+type RedisCacheIdMsg struct {
+	Id      int    `json:"id"`
+	MongoId string `json:"mongoId"`
+}

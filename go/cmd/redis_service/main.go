@@ -1,13 +1,20 @@
 package main
 
 import (
-	"github.com/redis/go-redis/v9"
+	"context"
+
+	"github.com/JWindy92/MovieDataCruncher/config"
+	"github.com/JWindy92/MovieDataCruncher/internal/redis_service/cache"
+	"github.com/JWindy92/MovieDataCruncher/messaging"
 )
 
 func main() {
-	client := redis.NewClient(&redis.Options{
-		Addr:     "localhost:6379",
-		Password: "", // no password set
-		DB:       0,  // use default DB
-	})
+	if err := config.LoadConfig(); err != nil {
+		// Handle error, e.g., log and exit
+		panic(err)
+	}
+	ctx := context.TODO()
+	cache.ConnectRedis(ctx)
+	messenger := messaging.Messenger{QueueName: config.Config.Redis.QueueName}
+	messenger.Listen(cache.HandleQueueMsg)
 }

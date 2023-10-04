@@ -9,6 +9,11 @@ dataingestion:
 transformation:
   queuename: "transformation_queue"
 
+# redis:
+#   host: "localhost"
+#   port: 6379
+#   queuename: "redis_queue"
+
 api:
   queuename: "api_queue"
 

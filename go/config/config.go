@@ -10,6 +10,7 @@ type AppConfig struct {
 	Messaging      MessagingConfig      `yaml:"messaging"`
 	DataIngestion  DataIngestionConfig  `yaml:"dataingestion"`
 	Transformation TransformationConfig `yaml:"transformation"`
+	Redis          RedisConfig          `yaml:"redis"`
 	Api            ApiConfig            `yaml:"api"`
 	Tmdb           TMBDConfig           `yaml"tmdb"`
 }
@@ -28,6 +29,12 @@ type TransformationConfig struct {
 }
 
 type ApiConfig struct {
+	QueueName string `yaml:"queuename"`
+}
+
+type RedisConfig struct {
+	Host      string `yaml:"host"`
+	Port      int    `yaml:"port"`
 	QueueName string `yaml:"queuename"`
 }
 
